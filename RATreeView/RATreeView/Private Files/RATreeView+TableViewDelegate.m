@@ -67,6 +67,33 @@
   }
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if ([self.delegate respondsToSelector:@selector(viewForHeader:)]) {
+        return [self.delegate viewForHeader:self];
+    }
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if ([self.delegate respondsToSelector:@selector(viewForFooter:)]) {
+        return [self.delegate viewForFooter:self];
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if ([self.delegate respondsToSelector:@selector(heightForHeader:)]) {
+        return [self.delegate heightForHeader:self];
+    }
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if ([self.delegate respondsToSelector:@selector(heightForFooter:)]) {
+        return [self.delegate heightForFooter:self];
+    }
+    return 0;
+}
 
 #pragma mark - Managing Accessory Views
 
@@ -265,6 +292,11 @@
   }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
+        [self.delegate scrollViewDidScroll:self.tableView];
+    }
+}
 
 #pragma mark - Private Helpers
 

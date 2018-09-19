@@ -435,6 +435,14 @@ typedef enum RATreeViewRowAnimation {
  */
 - (void)treeView:(RATreeView *)treeView didUnhighlightRowForItem:(id)item;
 
+- (nullable UIView *)viewForHeader:(RATreeView *)treeView;   // custom view for header. will be adjusted to default or specified header height
+- (nullable UIView *)viewForFooter:(RATreeView *)treeView;   // custom view for footer. will be adjusted to default or specified footer height
+
+- (CGFloat)heightForHeader:(RATreeView *)treeView;
+- (CGFloat)heightForFooter:(RATreeView *)treeView;
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+
 @end
 
 

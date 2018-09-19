@@ -75,6 +75,7 @@
 
   RATableView *tableView =  [[RATableView alloc] initWithFrame:frame style:tableViewStyle];
   tableView.tableViewDelegate = (id<UITableViewDelegate>)self;
+  tableView.scrollViewDelegate = (id<UITableViewDelegate>)self;
   tableView.dataSource = (id<UITableViewDataSource>)self;
   tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   tableView.backgroundColor = [UIColor clearColor];
